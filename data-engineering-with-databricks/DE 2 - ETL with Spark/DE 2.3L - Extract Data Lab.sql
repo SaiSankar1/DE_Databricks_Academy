@@ -73,8 +73,16 @@
 
 -- COMMAND ----------
 
+-- MAGIC %python
+-- MAGIC display(dbutils.fs.ls(DA.paths.kafka_events))
+
+-- COMMAND ----------
+
 -- TODO
-<FILL_IN> "${DA.paths.kafka_events}" 
+create table if not exists events_json
+(key binary,offset long,partition int, timestamp long,topic string, value binary)
+using json
+location "${DA.paths.kafka_events}";
 
 -- COMMAND ----------
 
