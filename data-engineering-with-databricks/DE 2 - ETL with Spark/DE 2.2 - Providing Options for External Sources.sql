@@ -49,6 +49,11 @@
 
 -- COMMAND ----------
 
+-- MAGIC %python
+-- MAGIC display(dbutils.fs.ls(DA.paths.sales_csv))
+
+-- COMMAND ----------
+
 SELECT * FROM csv.`${DA.paths.sales_csv}`
 
 -- COMMAND ----------
